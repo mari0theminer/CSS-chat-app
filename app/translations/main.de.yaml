@@ -1,0 +1,10 @@
+user:
+  username: Benutzername
+  firstname: Vorname
+  lastname: Nachname
+  birthday: Geburstag (optional)
+  alt-email: Alternative Email (optional)
+  email: Email
+  password: Password
+
+order: Bestellen
