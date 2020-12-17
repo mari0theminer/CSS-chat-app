@@ -1,0 +1,40 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+    db_chat:
+      image: mariadb:10.3
+      ports:
+        - "3306:3306"
+      environment:
+        - MYSQL_ROOT_PASSWORD=rootpw
+        - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+        - MYSQL_DATABASE=Unir_mangemnet
+        - MYSQL_USER=app
+        - MYSQL_PASSWORD=password
+      volumes:
+        - ./mysql/var/lib/mysql
+
+    webserver:
+      image: nginx:alpine
+      container_name: chat-webserver
+      working_dir: /application
+      volumes:
+          - ./app:/application
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "80:80"
+      environment:
+        - system=composer-single
+
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: chat-php-fpm
+      working_dir: /application
+      environment:
+        - system=composer-single
+      volumes:
+        - ./app:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
+
