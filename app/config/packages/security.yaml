@@ -2,11 +2,15 @@ security:
     providers:
         app_user_provider:
             entity:
-                class: App\Entity\UserGame
+                class: App\Entity\User
                 property: username
+        # used to reload user from session & other features (e.g. switch_user)
     encoders:
         App\Entity\UserGame:
             algorithm: auto
+        App\Entity\User:
+            algorithm: auto
+
 
 
     access_denied_url: /login
