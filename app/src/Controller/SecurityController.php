@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Form\RegisterFormType;
+use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
@@ -24,6 +28,28 @@ class SecurityController extends AbstractController
         $lastUsername = $authenticationUtils->getLastUsername();
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+    }
+    /**
+     * @Route("/register", name="app_register")
+     */
+    public function register(Request $request,EntityManagerInterface $em): Response
+    {
+        $form =$this->createForm(RegisterFormType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $User = $form->getData();
+            $User->setRoles(['ROLE_USER']);
+
+
+          $em->persist($User);
+          $em->flush();
+
+            return $this->redirectToRoute('app_login');
+        }
+
+        return $this->render('security/register.html.twig',[
+            "form"=> $form->createView(),
+        ]);
     }
 
     /**
