@@ -1,0 +1,95 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkslategrey;
+}
+
+.regForm{
+    box-shadow: 2px 2px 3px black;
+    border-radius: 10px;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: cadetblue;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form{
+    margin: 25px 15px 25px 15px;
+}
+
+form input{
+    border: 1px solid rgba(169, 169, 169, 0.623);
+    padding: 5px;
+    border-radius: 5px;
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 18px;
+    outline: none;
+}
+
+.regButton, form input{
+    box-shadow: 1px 1px 2px black;
+}
+
+.regButton{
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    width: 50%;
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    background-color: orangered;
+    font-size: 18px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.regButton:active{
+    transform: translate(1px, 1px);
+}
+
+/* .fab{
+    padding: 10px;
+    letter-spacing: 5px;
+    background-color: green;
+    border-radius: 20px;
+    box-shadow: 0 1px 4px 0 darkslategrey;
+  
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    outline: none;
+  
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+ }
+  
+ .fab:hover {
+    box-shadow: 0 2px 4px 0 darkslategrey;
+    transform: scale(1.05);
+ } */
+
+h1{
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+h5{
+    text-align: center;
+}
+
+.acc{
+    text-decoration: none;
+    color: white;
+}
