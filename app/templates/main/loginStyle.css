@@ -3,7 +3,7 @@
     color: darkslategrey;
 }
 
-.regForm{
+.loginForm{
     box-shadow: 2px 2px 3px black;
     border-radius: 10px;
     width: 400px;
@@ -33,11 +33,11 @@ form input{
     outline: none;
 }
 
-.regButton, form input{
+.loginButton, form input{
     box-shadow: 1px 1px 2px black;
 }
                                      
-.regButton{
+.loginButton{
     outline: none;
     border: 1px solid transparent;
     border-radius: 20px;
@@ -53,31 +53,9 @@ form input{
     letter-spacing: 2px;
 }
 
-.regButton:active{
+.loginButton:active{
     transform: translate(1px, 1px);
 }
-
-/* .fab{
-    padding: 10px;
-    letter-spacing: 5px;
-    background-color: green;
-    border-radius: 20px;
-    box-shadow: 0 1px 4px 0 darkslategrey;
-  
-    color: white;
-    text-align: center;
-    text-transform: uppercase;
-    outline: none;
-  
-    position: fixed;
-    right: 50px;
-    bottom: 50px;
- }
-  
- .fab:hover {
-    box-shadow: 0 2px 4px 0 darkslategrey;
-    transform: scale(1.05);
- } */
 
 h1{
     color: white;
