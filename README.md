@@ -1,2 +1,7 @@
 # CSS-chat-app
-TODO
+
+
+
+###TOOLS
+####Create Admin user 
+    php bin/console app:adminUser
