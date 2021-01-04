@@ -10,7 +10,7 @@ services:
       environment:
         - MYSQL_ROOT_PASSWORD=rootpw
         - MYSQL_ALLOW_EMPTY_PASSWORD=yes
-        - MYSQL_DATABASE=Unir_mangemnet
+        - MYSQL_DATABASE=db_chat
         - MYSQL_USER=app
         - MYSQL_PASSWORD=password
       volumes:

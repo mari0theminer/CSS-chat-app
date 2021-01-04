@@ -1,23 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="loginStyle.css">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <div class="loginForm">
-            <form>
-                <h1>Sign In</h1>
-                <input type="text" placeholder="Name">
-                <input type="text" placeholder="Password" inputmode="email">
-                <h5>No Account yet? <a href="" class="acc">Sign Up</a> 
-                </h5>
-                <button class="loginButton">Login</button>
-            </form>
-        </div>
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat App{% endblock %}
+
+{% block body %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>name</td>
+        <td>Public</td>
+        <td>actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for roms in allChatRoms %}
+    <tr>
+        <th>{{ roms.name }}</th>
+        <th>{{ roms.public }}</th>
+        <th>
+            <div class="butons">
+                {% if roms.public == true %}
+                <a>
+                    <BUTTON class="btn btn-success">Join</BUTTON>
+                </a>
+                {% endif %}
+            </div>
+        </th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <div class="btn-group">
+        <a href="{{ path('chat_create') }}">
+            <button class="btn btn-success">Create a Chat </button>
+        </a>
     </div>
-</body>
-</html>
+{% endblock %}

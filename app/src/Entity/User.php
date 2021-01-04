@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -38,6 +40,16 @@ class User implements UserInterface
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=ChatRoom::class, mappedBy="Users")
+     */
+    private $chatRooms;
+
+    public function __construct()
+    {
+        $this->chatRooms = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -126,6 +138,37 @@ class User implements UserInterface
     public function setEmail($email): void
     {
         $this->email = $email;
+    }
+
+    /**
+     * @return Collection|ChatRoom[]
+     */
+    public function getChatRooms(): Collection
+    {
+        return $this->chatRooms;
+    }
+
+    public function addChatRoom(ChatRoom $chatRoom): self
+    {
+        if (!$this->chatRooms->contains($chatRoom)) {
+            $this->chatRooms[] = $chatRoom;
+            $chatRoom->addUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChatRoom(ChatRoom $chatRoom): self
+    {
+        if ($this->chatRooms->removeElement($chatRoom)) {
+            $chatRoom->removeUser($this);
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return "".$this->username;
     }
 
 }
