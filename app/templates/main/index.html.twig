@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat App{% endblock %}
+
+{% block body %}
+
+<table class="table">
+    <thead>
+    <tr>
+        <td>name</td>
+        <td>Public</td>
+        <td>actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for roms in allChatRoms %}
+    <tr>
+        <th>{{ roms.name }}</th>
+        <th>{{ roms.public }}</th>
+        <th>
+            <div class="butons">
+                {% if roms.public == true %}
+                <a>
+                    <BUTTON class="btn btn-success">Join</BUTTON>
+                </a>
+                {% endif %}
+            </div>
+        </th>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+    <div class="btn-group">
+        <a href="{{ path('chat_create') }}">
+            <button class="btn btn-success">Create a Chat </button>
+        </a>
+    </div>
+{% endblock %}

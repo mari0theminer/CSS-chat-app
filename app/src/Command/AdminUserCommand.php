@@ -48,7 +48,7 @@ class AdminUserCommand extends Command
         $io->info('save in to DB');
         $this->em->persist($User);
         $this->em->flush();
-        $io->success('You have create a Super admin User Name:'.$name.'   pw:'.$pw);
+        $io->success('You have create a Super admin User Name: '.$name.'   pw: '.$pw);
 
         return Command::SUCCESS;
     }
