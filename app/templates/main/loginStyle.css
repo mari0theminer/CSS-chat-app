@@ -20,7 +20,17 @@ form{
     margin: 25px 15px 25px 15px;
 }
 
-form input{
+label{
+    color: white;
+}
+
+form input[type="checkbox"]{
+    margin: 10px 0px 0px 10px;
+    outline: none;
+    border: none;
+}
+
+form input[type="text"]{
     background-color: rgb(231, 231, 231);
     border: none;
     padding: 5px;

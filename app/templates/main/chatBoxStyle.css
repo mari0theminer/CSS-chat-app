@@ -1,0 +1,96 @@
+p{
+    text-align: center;
+    margin-top: 50%;
+}
+
+label{
+    background-color: wheat;
+}
+
+.container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main{
+    padding: 10px;
+    background-color: tomato;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px black;
+}
+
+.side{
+    background-color: white;
+    border-radius: 15px 0px 0px 15px;
+}
+
+.chatLists{
+    height: 300px;
+}
+
+.chat{
+    border-radius: 0px 15px 15px 0px;
+    background-color: cadetblue;
+}
+
+.chatArea{
+    background-color: cadetblue;
+    height: 500px;
+    border-radius: 0px 15px 15px 0px;
+}
+
+img{
+    display: block;
+    margin: 10px auto 10px auto;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    background-color: deepskyblue;
+    box-shadow: 1px 1px 1px black;
+}
+
+.navi{
+    margin: 5px;
+    text-align: center;
+}
+
+.control{
+    margin: 10px;
+}
+
+.textBox, .sendButton{
+    box-shadow: 1px 1px 1px black;
+    font-size: 18px;
+    padding: 5px;
+}
+
+.textBox{
+    padding-left: 10px;
+    width: 80%;
+    outline: none;
+    border-radius: 15px 0px 0px 15px;
+    border: none;
+    /* border-right: none; */
+}
+
+.sendButton{
+    /* border-left: none; */
+    width: 20%;
+    color: white;
+    background-color: cadetblue;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 0px 15px 15px 0px;
+    outline: none;
+    border: none;
+}
+
+.sendButton:active{
+    transform: translate(1px, 1px);
+}
+
+.sendButton:focus{
+    outline: none;
+}
