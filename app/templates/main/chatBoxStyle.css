@@ -1,10 +1,14 @@
 p{
     text-align: center;
-    margin-top: 50%;
+    background-color: deepskyblue;
 }
 
-label{
-    background-color: wheat;
+.row{
+    --bs-gutter-x: 0px;
+}
+
+.container{
+    padding: 0px;
 }
 
 .container{
@@ -16,29 +20,32 @@ label{
 
 .main{
     padding: 10px;
-    background-color: tomato;
-    border-radius: 15px;
+    background-color: cadetblue;
+    /* border-radius: 15px; */
     box-shadow: 1px 1px 1px black;
 }
 
 .side{
     background-color: white;
-    border-radius: 15px 0px 0px 15px;
+    /* border-radius: 15px 0px 0px 15px; */
+}
+
+.nav{
+    border: 1px solid orangered;
+    outline: none;
 }
 
 .chatLists{
-    height: 300px;
+    height: 100px;
 }
 
 .chat{
-    border-radius: 0px 15px 15px 0px;
-    background-color: cadetblue;
+    border: 1px solid white;
 }
 
 .chatArea{
-    background-color: cadetblue;
-    height: 500px;
-    border-radius: 0px 15px 15px 0px;
+    height: 350px;
+    background-color: red;
 }
 
 img{
@@ -52,37 +59,44 @@ img{
 }
 
 .navi{
-    margin: 5px;
+    margin: 15px;
     text-align: center;
+    position: static;
+    bottom: 10px;
+}
+
+.signOut:hover, .setting:hover{
+    cursor: pointer;
+    color: teal;
 }
 
 .control{
-    margin: 10px;
+    margin: 5px;
+    position: static;
+    bottom: 10px;
 }
 
 .textBox, .sendButton{
     box-shadow: 1px 1px 1px black;
-    font-size: 18px;
+    /* font-size: 18px; */
     padding: 5px;
 }
 
 .textBox{
-    padding-left: 10px;
     width: 80%;
+    padding-left: 10px;
     outline: none;
-    border-radius: 15px 0px 0px 15px;
+    /* border-radius: 15px 0px 0px 15px; */
     border: none;
-    /* border-right: none; */
 }
 
 .sendButton{
-    /* border-left: none; */
     width: 20%;
     color: white;
-    background-color: cadetblue;
+    background-color: tomato;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-radius: 0px 15px 15px 0px;
+    /* border-radius: 0px 15px 15px 0px; */
     outline: none;
     border: none;
 }
@@ -94,3 +108,18 @@ img{
 .sendButton:focus{
     outline: none;
 }
+
+.colBtn:focus{
+    outline: none;
+    border: none;
+}
+
+/* @media only screen and (max-width: 735px) {
+    .side{
+        visibility: collapse;
+    }
+
+    .chat{
+        width: 100%;
+    }
+  } */

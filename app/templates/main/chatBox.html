@@ -4,134 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <title>Test Page</title>
-    <style>
-        p{
-            text-align: center;
-            margin-top: 50%;
-        }
-
-        label{
-            background-color: wheat;
-        }
-
-        .container{
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .main{
-            padding: 10px;
-            background-color: tomato;
-            border-radius: 15px;
-            box-shadow: 1px 1px 1px black;
-        }
-
-        .side{
-            background-color: white;
-            border-radius: 15px 0px 0px 15px;
-        }
-
-        .chatLists{
-            height: 300px;
-        }
-
-        .chat{
-            border-radius: 0px 15px 15px 0px;
-            background-color: cadetblue;
-        }
-
-        .chatArea{
-            background-color: cadetblue;
-            height: 500px;
-            border-radius: 0px 15px 15px 0px;
-        }
-
-        img{
-            display: block;
-            margin: 10px auto 10px auto;
-            border-radius: 50px;
-            height: 100px;
-            width: 100px;
-            background-color: deepskyblue;
-            box-shadow: 1px 1px 1px black;
-        }
-
-        .navi{
-            margin: 5px;
-            text-align: center;
-        }
-
-        .control{
-            margin: 10px;
-        }
-
-        .textBox, .sendButton{
-            box-shadow: 1px 1px 1px black;
-            font-size: 18px;
-            padding: 5px;
-        }
-
-        .textBox{
-            padding-left: 10px;
-            width: 80%;
-            outline: none;
-            border-radius: 15px 0px 0px 15px;
-            border: none;
-            /* border-right: none; */
-        }
-
-        .sendButton{
-            /* border-left: none; */
-            width: 20%;
-            color: white;
-            background-color: cadetblue;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 0px 15px 15px 0px;
-            outline: none;
-            border: none;
-        }
-
-        .sendButton:active{
-            transform: translate(1px, 1px);
-        }
-        
-        .sendButton:focus{
-            outline: none;
-        }
-    </style>
+    <link rel="stylesheet" href="chatBoxStyle.css">
+    <title>ChatBox</title>
 </head>
 <body>
     <div class="container">
         <div class="row main">
-            <div class="col-md-4 side">
-                <div class="row">
-                    <div class="col-12 avatar">
-                        <img src="https://findicons.com/files/icons/1580/devine_icons_part_2/256/account_and_control.png" alt="account_icon">
+
+            <div class="navbar col-md-4 navbar-expand-md navbar-light bg-light">
+                <button class="navbar-toggler colBtn" data-toggle="collapse" data-target="#navbarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="row collapse navbar-collapse" id="navbarMenu">
+                    <div class="row">
+                        <div class="avatar">
+                            <img src="https://findicons.com/files/icons/1580/devine_icons_part_2/256/account_and_control.png" alt="account_icon">
+                        </div>
                     </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-12 chatLists">
-                        list of chats
+                    <hr>
+                    <div class="row">
+                        <div class="chatLists">
+                            list of chats
+                        </div>
                     </div>
-                </div>
-                <hr>
-                <div class="row justify-content-end navi">
-                    <label class="col-8 col-sm-6" for="">Sign out</label>
-                    <label class="col-4 col-sm-6" for="">Settings</label>
+                    <hr>
+                    <div class="row navi">
+                        <label class="col-md-6 col-sm-6 signOut" for="">Sign out</label>
+                        <label class="col-md-6 col-sm-6 setting" for="">Settings</label>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-8 chat">
+            <!-- <div class="col-md-4 navbar-expand-md navbar-light bg-light side" >
                 <div class="row">
-                    <div class="col-12 chatArea">
-                        <p>this is chat area</p>
+                    <div>
+                        <button class="navbar-toggler colBtn" data-toggle="collapse" data-target="#navbarMenu">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                     </div>
                 </div>
+                <div class="row collapse navbar-collapse" id="navbarMenu">
+                    <div class="row">
+                        <div class="avatar">
+                            <img src="https://findicons.com/files/icons/1580/devine_icons_part_2/256/account_and_control.png" alt="account_icon">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 chatLists">
+                            list of chats
+                        </div>
+                    </div>
+                    <div class="row navi">
+                        <label class="col-md-6 col-sm-6 signOut" for="">Sign out</label>
+                        <label class="col-md-6 col-sm-6 setting" for="">Settings</label>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="col-md-8 chat">
+                <div class="row chatArea">
+                    <p>This is chat area</p>
+                </div>
+                
                 <div class="row control">
                     <input class="textBox" type="text" placeholder="type here">
                     <button class="sendButton">send</button>
@@ -139,5 +73,12 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 </html>
