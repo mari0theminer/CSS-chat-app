@@ -1,97 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <link rel="stylesheet" href="chatBoxStyle.css">
     <title>ChatBox</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="chatBoxStyle.css">
 </head>
+
 <body>
-    <div class="container">
-        <div class="row main">
-
-            <div class="col-md-4 navbar-expand-md justify-content-center navbar-light bg-light">
-                <button class="navbar-toggler colBtn" data-toggle="collapse" data-target="#navbarMenu">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="row collapse navbar-collapse" id="navbarMenu">
-                    <div class="row">
-                        <div class="avatar">
-                            <img src="https://findicons.com/files/icons/1580/devine_icons_part_2/256/account_and_control.png" alt="account_icon">
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="chatLists">
-                            <label for="">
-                                list of Chats
-                            </label>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="row justify-content-between align-items-end navi">
-                        <label class="col-md-6 signOut" for="">Sign out</label>
-                        <label class="col-md-6 setting" for="">Settings</label>
-                    </div>
-                </div>
-            </div>
-
-            <!-- <div class="col-md-4 navbar-expand-md navbar-light bg-light side" >
-                <div class="row">
-                    <div>
-                        <button class="navbar-toggler colBtn" data-toggle="collapse" data-target="#navbarMenu">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-                </div>
-                <div class="row collapse navbar-collapse" id="navbarMenu">
-                    <div class="row">
-                        <div class="avatar">
-                            <img src="https://findicons.com/files/icons/1580/devine_icons_part_2/256/account_and_control.png" alt="account_icon">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12 chatLists">
-                            list of chats
-                        </div>
-                    </div>
-                    <div class="row navi">
-                        <label class="col-md-6 col-sm-6 signOut" for="">Sign out</label>
-                        <label class="col-md-6 col-sm-6 setting" for="">Settings</label>
-                    </div>
-                </div>
-            </div> -->
-
-            <div class="col-md-8 chat">
-                <div class="row chatArea">
-                    <p>This is chat area</p>
-                </div>
-                
-                <div class="row control">
-                    <input class="textBox" type="text" placeholder="type here">
-                    <button class="sendButton">send</button>
-                </div>
+    <header class="header">
+        <button id="menuBtn"><i class="material-icons">menu</i></button>
+    </header>
+    <nav class="side">
+        <button id="closeBtn"><i class="material-icons">cancel</i></button>
+        sidebar
+    </nav>
+    <main class="main">
+        <div class="chat">
+            <div class="chatArea">CHATBOX</div>
+            <div class="controls">
+                <input class="tbox" type="text" placeholder="type here">
+                <button class="sendBtn">SEND</button>
             </div>
         </div>
-    </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector(".side");
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+            document.querySelector("#menuBtn").addEventListener("click", () => {
+                nav.classList.add("openSidebar");
+            });
 
-        <script>
-            function openNav() {
-              document.getElementById("myNav").style.width = "50%";
-            }
-            
-            function closeNav() {
-              document.getElementById("myNav").style.width = "0%";
-            }
-        </script>
-
+            document.querySelector("#closeBtn").addEventListener("click", () => {
+                nav.classList.remove("openSidebar");
+            });
+        });
+    </script>
 </body>
+
 </html>
