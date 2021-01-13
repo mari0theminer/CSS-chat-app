@@ -4,6 +4,21 @@ body {
     background-color: cadetblue;
 }
 
+img{
+    margin: 10px auto;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    background-color: wheat;
+    box-shadow: 1px 1px 1px black;
+}
+
+.username{
+    display: block;
+    text-align: center;
+    margin: 5px auto;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -24,11 +39,26 @@ body {
     width: 250px;
     transform: translateX(-250px);
     transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: stretch;
+}
+
+.avatar{
+    flex: 1;
+    text-align: center;
+    background-color: cadetblue;
+}
+
+.chatList{
+    flex: 2;
+    text-align: center;
 }
 
 .openSidebar{
     transform: translateX(0);
-    box-shadow: 0 0 10px darkgray;
+    box-shadow: 0 0 10px dimgray;
 }
 
 .main {
@@ -49,9 +79,7 @@ body {
 .chatArea {
     margin: 5px;
     flex: 2;
-    border: 1px dashed green;
     height: 100%;
-    align-content: stretch;
 }
 
 .controls {
@@ -59,7 +87,6 @@ body {
     width: 100%;
     position: fixed;
     bottom: 0;
-    border: 1px dashed orange;
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -99,7 +126,7 @@ body {
 }
 
 #closeBtn{
-    color: tomato;
+    color: white;
     background-color: transparent;
     border: none;
     outline: none;
@@ -109,5 +136,5 @@ body {
 }
 
     #closeBtn:hover{
-        color: cadetblue;
+        color: wheat;
     }
