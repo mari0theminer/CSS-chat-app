@@ -1,0 +1,81 @@
+body{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+p{
+    height: 400px;
+}
+
+.container{
+    height: 100%;
+    border: 1px solid tomato;
+    display: flex;
+    flex-direction: row;
+}
+
+.side{
+    background-color: royalblue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 250px;
+    border: 1px dashed orange;
+    margin: 5px;
+    transform: translateX(-250px);
+    transition: transform 0.3s;
+}
+
+/* .tboxSide{
+    display: inline;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.chat{
+    flex: 2;
+    display: grid;
+    grid-template-rows: 1fr auto;
+    border: 1px dashed green;
+    margin: 5px;
+}
+
+.area{
+    border: 1px dashed purple;
+    margin: 5px;
+}
+
+.control{
+    padding: 3px;
+    display: flex;
+    border: 1px dashed blue;
+    margin: 5px;
+}
+
+.textBox{
+    flex: 2;
+}
+
+.sendBtn{
+    flex: 1;
+}
+
+.sideOpen{
+    visibility: visible;
+    opacity: 1;
+}
+
+@media only screen and (max-width: 850px) {
+  .side{
+    position: unset;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+}

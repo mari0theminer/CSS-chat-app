@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <div class="container">
+        <div class="side">
+            <input class="tboxSide" type="text">
+        </div>
+
+        <div class="chat">
+            <div class="area">
+                <p>this is the chat area</p>
+            </div>
+
+            <div class="control">
+                <input class="textBox" type="text" placeholder="type here">
+                <button id="sendBtn" class="sendBtn">SEND</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector(".side");
+
+            document.querySelector("#sendBtn").addEventListener("click", () => {
+                nav.classList.add("sideOpen");
+            });
+        });
+    </script>
+</body>
+</html>
