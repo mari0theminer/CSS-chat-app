@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
     position: absolute;
     top: 0;
@@ -56,12 +57,101 @@ p{
     display: flex;
     border: 1px dashed blue;
     margin: 5px;
+=======
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+.chat{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid tomato;
+    margin: 5px;
+}
+
+.navi{
+    flex: 1;
+}
+
+.chatArea{
+    flex: 3;
+    border: 2px solid darkgreen;
+}
+
+.control{
+    flex: 1;
+    border: 2px solid yellowgreen;
+    /* margin: 5px; */
+    display: flex;
+    flex-direction: row;
+}
+
+.textBox, .sendButton{
+    padding: 5px;
+    font-size: 20px;
+>>>>>>> 65747d917bc143ec7266d3ee75b04d955d91311a
 }
 
 .textBox{
     flex: 2;
 }
 
+<<<<<<< HEAD
 .sendBtn{
     flex: 1;
 }
@@ -79,3 +169,33 @@ p{
     z-index: 0;
   }
 }
+=======
+.sendButton{
+    margin: 3px;
+    letter-spacing: 3px;
+    flex: 1;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.openBtn{
+    letter-spacing: 3px;
+}
+
+.main{
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    /* width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    background-color: deepskyblue; */
+}
+
+>>>>>>> 65747d917bc143ec7266d3ee75b04d955d91311a
