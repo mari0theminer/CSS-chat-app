@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="test.css">
+</head>
+
+<body>
+    <div class="main">
+        <div id="myNav" class="overlay">
+            <a class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content">
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+
+        <div class="navi">
+            <button class="openBtn" onclick="openNav()">&#9776; OPEN</button>
+        </div>
+    
+        <div class="chat">
+            <div class="chatArea">
+                <p>This is chat area</p>
+            </div>
+            
+            <div class="control">
+                <input class="textBox" type="text" placeholder="type here">
+                <button class="sendButton">send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("myNav").style.width = "75%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
+</body>
+</html>

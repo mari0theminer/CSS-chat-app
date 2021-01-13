@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .navi{
+            flex: 1;
+        }
+
+        .chat{
+            flex: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chatArea{
+            flex: 80%;
+        }
+
+        .controls{
+            flex: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="navi">NAVI</div>
+        <div class="chat">
+            <div class="chatArea">CHATBOX</div>
+            <div class="controls">CONTROLS</div>
+        </div>
+    </div>
+</body>
+</html>
