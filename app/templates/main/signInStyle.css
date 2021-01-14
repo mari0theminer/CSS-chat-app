@@ -6,7 +6,7 @@
 .loginForm{
     box-shadow: 2px 2px 3px black;
     border-radius: 10px;
-    width: 400px;
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
     background-color: cadetblue;
@@ -49,11 +49,11 @@ form input:focus{
     box-shadow: 1px 1px black;
 }
 
-.loginButton, form input{
+.signInButton, form input{
     box-shadow: 1px 1px black;
 }
                                      
-.loginButton{
+.signInButton{
     outline: none;
     border: 1px solid transparent;
     border-radius: 20px;
@@ -69,12 +69,12 @@ form input:focus{
     letter-spacing: 2px;
 }
 
-.loginButton:active{
+.signInButton:active{
     transform: translate(1px, 1px);
 }
 
-.loginButton:hover{
-    background-color: red;
+.signInButton:hover{
+    cursor: pointer;
 }
 
 h1{
@@ -101,7 +101,28 @@ h5{
     text-align: center;
 }
 
-.acc{
+.toSignUpPage{
     text-decoration: none;
+    /* color: white; */
+}
+
+.toSignUpPage:hover{
     color: white;
+}
+
+.toSignUp{
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    left: 80%;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
+    background-color: rgb(231, 231, 231);
+}
+
+.toSignUp:hover{
+    color: orangered;
+    cursor: pointer;
 }

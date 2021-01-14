@@ -1,96 +1,143 @@
-p{
-    text-align: center;
-    margin-top: 50%;
-}
-
-label{
-    background-color: wheat;
-}
-
-.container{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.main{
-    padding: 10px;
-    background-color: tomato;
-    border-radius: 15px;
-    box-shadow: 1px 1px 1px black;
-}
-
-.side{
-    background-color: white;
-    border-radius: 15px 0px 0px 15px;
-}
-
-.chatLists{
-    height: 300px;
-}
-
-.chat{
-    border-radius: 0px 15px 15px 0px;
+body {
+    --headerHight: 40px;
+    margin: var(--headerHight) 0 0 0;
     background-color: cadetblue;
-}
-
-.chatArea{
-    background-color: cadetblue;
-    height: 500px;
-    border-radius: 0px 15px 15px 0px;
 }
 
 img{
-    display: block;
-    margin: 10px auto 10px auto;
+    margin: 10px auto;
     border-radius: 50px;
     height: 100px;
     width: 100px;
-    background-color: deepskyblue;
+    background-color: wheat;
     box-shadow: 1px 1px 1px black;
 }
 
-.navi{
-    margin: 5px;
+.username{
+    letter-spacing: 2px;
+    font-size: 24px;
+    color: white;
+    display: block;
+    text-align: center;
+    margin: 5px auto;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--headerHight);
+    width: 100%;
+    display: flex;
+    background: tomato;
+}
+
+.side {
+    background-color: wheat;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 250px;
+    transform: translateX(-250px);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: stretch;
+}
+
+.avatar{
+    flex: 1;
+    text-align: center;
+    background-color: cadetblue;
+}
+
+.chatList{
+    flex: 2;
     text-align: center;
 }
 
-.control{
-    margin: 10px;
+.openSidebar{
+    transform: translateX(0);
+    box-shadow: 0 0 10px dimgray;
 }
 
-.textBox, .sendButton{
-    box-shadow: 1px 1px 1px black;
-    font-size: 18px;
-    padding: 5px;
+.main {
+    display: flex;
+    flex-direction: row;
 }
 
-.textBox{
-    padding-left: 10px;
-    width: 80%;
-    outline: none;
-    border-radius: 15px 0px 0px 15px;
-    border: none;
-    /* border-right: none; */
+.navi {
+    flex: 1;
 }
 
-.sendButton{
-    /* border-left: none; */
-    width: 20%;
-    color: white;
+.chat {
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatArea {
+    margin: 5px;
+    flex: 2;
+    height: 100%;
+}
+
+.controls {
     background-color: cadetblue;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-radius: 0px 15px 15px 0px;
-    outline: none;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.tbox, .sendBtn{
+    font-size: 18px;
+    margin: 3px;
     border: none;
+    outline: none;
+    box-shadow: 1px 1px 1px black;
+    border-radius: 15px;
 }
 
-.sendButton:active{
-    transform: translate(1px, 1px);
+.tbox {
+    flex: 2;
+    padding: 3px 10px;
 }
 
-.sendButton:focus{
+.sendBtn, #menuBtn, #closeBtn{
+    cursor: pointer;
+}
+
+.sendBtn {
+    flex: 1;
+    padding: 3px;
+    letter-spacing: 3px;
+    color: white;
+    background-color: tomato;
+}
+
+#menuBtn{
+    color: white;
+    background-color: tomato;
+    border: none;
     outline: none;
 }
+
+#closeBtn{
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    position: fixed;
+    top: 3px;
+    right: 0;
+}
+
+    #closeBtn:hover, #menuBtn:hover{
+        color: wheat;
+    }
