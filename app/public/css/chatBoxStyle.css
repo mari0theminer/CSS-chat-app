@@ -14,12 +14,13 @@ img{
 }
 
 .username{
+    word-break: break-all;
     letter-spacing: 2px;
     font-size: 24px;
     color: white;
     display: block;
     text-align: center;
-    margin: 5px auto;
+    margin: 5px 5px;
 }
 
 .header {
@@ -29,6 +30,8 @@ img{
     height: var(--headerHight);
     width: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     background: tomato;
 }
 
@@ -83,6 +86,9 @@ img{
     margin: 5px;
     flex: 2;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .controls {
@@ -120,6 +126,33 @@ img{
     color: white;
     background-color: tomato;
 }
+    .sendBtn:focus{
+        background-color: red;
+    }
+
+.usernameHeader{
+    justify-self: center;
+    word-break: break-all;
+    letter-spacing: 2px;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    margin: 5px 5px;
+}
+
+.logout{
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+    .logout:visited{
+        color: white;
+    }
+
+    .logout:active{
+        color: cadetblue;
+    }
 
 #menuBtn{
     color: white;
@@ -141,3 +174,29 @@ img{
     #closeBtn:hover, #menuBtn:hover{
         color: wheat;
     }
+
+
+.content{
+    margin: 5px 5px 5px;
+    text-align: end;
+    font-size: 18px;
+}
+
+.sender{
+    margin: 5px 5px 5px;
+    color: grey;
+    font-size: 12px;
+    font-style: italic;
+    text-transform: uppercase;
+    text-align: end;
+
+}
+
+.bubble{
+    box-shadow: 2px 2px 3px dimgray;
+    align-self: flex-end;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: wheat;
+    width: fit-content;
+}
