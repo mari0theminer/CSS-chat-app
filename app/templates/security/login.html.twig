@@ -46,14 +46,14 @@
 <div class="loginForm">
         <form method="post">
             <h1>Sign In</h1>
-            <input type="text" placeholder="Username" value="{{ last_username }}" name="username" id"inputUsername" required autofocus>
+            <input type="text" placeholder="Username" value="{{ last_username }}" name="username" id="inputUsername" required autofocus>
             <input type="password" placeholder="Password" name="password" id="inputPassword" required>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             <input type="checkbox" name="_remember_me">
             <label for="rmbrMeBox">stay signed in</label>
             <button type="submit" class="signInButton">Login</button>
         </form>
-        <a href="Register.html.twig" class="toSignUp">
+        <a href="{{ path('app_register') }}" class="toSignUp">
             Sign Up
         </a>
     </div>
