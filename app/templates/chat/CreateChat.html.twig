@@ -1,9 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Chat App{% endblock %}
+{% block title %}ChatBox{% endblock %}
 
 {% block body %}
-<div class="container">
+{# <div class="container">
 {{ form(form) }}
-</div>
+</div> #}
+
+<header class="header">
+        <button id="menuBtn"><i class="material-icons">menu</i></button>
+    </header>
+    <nav class="side">
+        <button id="closeBtn"><i class="material-icons">close</i></button>
+        <div class="avatar">
+            <img src="https://simpleicon.com/wp-content/uploads/account-256x256.png" alt="account Icon">
+            <label class="username" for="avatar">Username</label>
+        </div>
+        <div class="chatList">
+            list of chats
+        </div>
+    </nav>
+    <main class="main">
+        <div class="chat">
+            <div class="chatArea">CHATBOX</div>
+            <div class="controls">
+                <input class="tbox" type="text" placeholder="type here">
+                <button class="sendBtn">SEND</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector(".side");
+
+            document.querySelector("#menuBtn").addEventListener("click", () => {
+                nav.classList.add("openSidebar");
+            });
+
+            document.querySelector("#closeBtn").addEventListener("click", () => {
+                nav.classList.remove("openSidebar");
+            });
+
+            document.querySelector(".chatArea").addEventListener("click", () => {
+                nav.classList.remove("openSidebar");
+            });
+        });
+    </script>
 {% endblock %}

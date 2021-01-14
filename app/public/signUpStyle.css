@@ -1,9 +1,9 @@
 *{
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: darkslategrey;
 }
 
-.loginForm{
+.regForm{
     box-shadow: 2px 2px 3px black;
     border-radius: 10px;
     width: 600px;
@@ -20,18 +20,7 @@ form{
     margin: 25px 15px 25px 15px;
 }
 
-label{
-    color: white;
-}
-
-form input[type="checkbox"]{
-    border-radius: 30px;
-    margin: 10px 0px 0px 10px;
-    outline: none;
-    border: none;
-}
-
-form input[type="text"], input[type="password"]{
+form input{
     background-color: rgb(231, 231, 231);
     border: none;
     padding: 5px;
@@ -50,31 +39,31 @@ form input:focus{
     box-shadow: 1px 1px black;
 }
 
-.signInButton, form input{
+.signUpButton, form input{
     box-shadow: 1px 1px black;
 }
                                      
-.signInButton{
+.signUpButton{
     outline: none;
     border: 1px solid transparent;
     border-radius: 20px;
     width: 50%;
     display: block;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     padding: 5px;
-    background-color: tomato;
+    background-color: orangered;
     font-size: 18px;
     color: white;
     letter-spacing: 2px;
 }
 
-.signInButton:active{
+.signUpButton:active{
     transform: translate(1px, 1px);
 }
 
-.signInButton:hover{
+.signUpButton:hover{
     cursor: pointer;
 }
 
@@ -84,34 +73,16 @@ h1{
     letter-spacing: 2px;
 }
 
-h1:hover{
-    animation: example 5s infinite;
-}
-
-@keyframes example {
-    0% { color: white; }
-    15% { color: orange; }
-    25% { color: tomato; }
-    50% { color: darkred; }
-    75% { color: tomato; }
-    85% { color: orange; }
-    100% { color: white; }
-  }
-
 h5{
     text-align: center;
 }
 
-.toSignUpPage{
+.acc{
     text-decoration: none;
-    /* color: white; */
-}
-
-.toSignUpPage:hover{
     color: white;
 }
 
-.toSignUp{
+.toSignIn{
     text-decoration: none;
     position: fixed;
     top: 0;
@@ -123,7 +94,7 @@ h5{
     background-color: rgb(231, 231, 231);
 }
 
-.toSignUp:hover{
-    color: cadetblue;
+.toSignIn:hover{
+    color: orangered;
     cursor: pointer;
 }
