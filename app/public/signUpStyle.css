@@ -1,0 +1,100 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkslategrey;
+}
+
+.regForm{
+    box-shadow: 2px 2px 3px black;
+    border-radius: 10px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: cadetblue;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+form{
+    margin: 25px 15px 25px 15px;
+}
+
+form input{
+    background-color: rgb(231, 231, 231);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 18px;
+    outline: none;
+}
+
+form input:focus{
+    background-color: white;
+    box-shadow: 1px 1px black;
+}
+
+.signUpButton, form input{
+    box-shadow: 1px 1px black;
+}
+                                     
+.signUpButton{
+    outline: none;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    width: 50%;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    background-color: orangered;
+    font-size: 18px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.signUpButton:active{
+    transform: translate(1px, 1px);
+}
+
+.signUpButton:hover{
+    cursor: pointer;
+}
+
+h1{
+    color: white;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+h5{
+    text-align: center;
+}
+
+.acc{
+    text-decoration: none;
+    color: white;
+}
+
+.toSignIn{
+    text-decoration: none;
+    position: fixed;
+    top: 0;
+    left: 80%;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 0px 0px 5px 5px;
+    background-color: rgb(231, 231, 231);
+}
+
+.toSignIn:hover{
+    color: orangered;
+    cursor: pointer;
+}
