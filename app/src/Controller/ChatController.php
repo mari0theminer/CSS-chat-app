@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Form\CreateChatType;
 use App\Repository\ChatRoomRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use mysql_xdevapi\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -37,5 +38,27 @@ class ChatController extends AbstractController
             'controller_name' => 'MainController',
             'form'=> $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/c/{hash}", name="chat_hash")
+     */
+    public function chat_hash($hash,ChatRoomRepository $re): Response
+    {
+        try {
+            $room =$re->findOneBy(['hash'=>$hash]);
+
+        }catch (Exception $exception){
+            return $this->redirectToRoute('home');
+        }
+        $allrooms =$re->findAll();
+
+
+        return $this->render('chat/joinChat.twig',
+            [
+                'room'=>$room,
+                'rooms'=>$allrooms
+            ]);
+
     }
 }
