@@ -20,8 +20,8 @@
         <th>
             <div class="butons">
                 {% if roms.public == true %}
-                <a>
-                    <BUTTON class="btn btn-success">Join</BUTTON>
+                <a href="{{ path('join_hash', {'hash': roms.hash}) }}">
+                    <BUTTON class="btn btn-success join_button" name="{{ roms.hash }}">Join</BUTTON>
                 </a>
                 {% endif %}
             </div>
@@ -35,4 +35,6 @@
             <button class="btn btn-success">Create a Chat </button>
         </a>
     </div>
+    <script>
+    </script>
 {% endblock %}

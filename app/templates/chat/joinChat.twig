@@ -1,0 +1,117 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chat App{% endblock %}
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/chatBoxStyle.css">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <header class="header">
+        <button id="menuBtn"><i class="material-icons">menu</i></button>
+    </header>
+    <nav class="side">
+        <button id="closeBtn"><i class="material-icons">close</i></button>
+        <div class="avatar">
+            <img src="https://simpleicon.com/wp-content/uploads/account-256x256.png" alt="account Icon">
+            <label class="username" for="avatar">Username</label>
+{#            <label class="username" for="avatar">{{ app.user.username }}</label>  TODO fix to long name does not fit #}
+        </div>
+        <div class="chatList">
+            {% for Room in rooms  %}
+                <div style="background: #ff7cd4"
+                {% if Room.public == true %}
+                onclick='join_room_public("{{ Room.hash }}")'
+                {% else %}
+                onclick='join_room_Private("{{ Room.hash }}")'
+                {% endif %}>
+                    <p> {{ Room.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </nav>
+    <main class="main">
+        <div class="chat">
+            <div id="chat_window" class="chatArea">
+
+            </div>
+            <div class="controls">
+                <input class="tbox" type="text" placeholder="type here" id="input_user">
+                <button class="sendBtn" onclick="SendMessage()">SEND</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.querySelector(".side");
+
+            document.querySelector("#menuBtn").addEventListener("click", () => {
+                nav.classList.add("openSidebar");
+            });
+
+            document.querySelector("#closeBtn").addEventListener("click", () => {
+                nav.classList.remove("openSidebar");
+            });
+
+            document.querySelector(".chatArea").addEventListener("click", () => {
+                nav.classList.remove("openSidebar");
+            });
+        });
+    </script>
+    <script>
+        window.onload =function (){
+            var t=setInterval(getmessage,10000);
+
+        }
+        function join_room_public(hash){
+            window.location.replace("/chat/c/"+ hash)
+        }
+        function join_room_Private(hash){
+            alert("todo");
+        }
+        async function SendMessage(){
+            var datasend = {room:"{{ room.hash }}"};
+            datasend["user"]="{{ app.user.id }}";
+            datasend["message"]=document.getElementById("input_user").value;
+            let response =await fetch("{{ path('sende_message') }}",{
+                method:"POST",
+                body:JSON.stringify(datasend)
+            })
+            let data= await  response.json()
+            console.log("Send Message")
+        }
+        async function getmessage(){
+
+            var datasend = {room:"{{ room.hash }}",LastMessageHash:getLastMessageHash()};
+            datasend["message"]=document.getElementById("input_user").value;
+            let response =await fetch("{{ path('get_message') }}",{
+                method:"POST",
+                body:JSON.stringify(datasend)
+            })
+            let data= await response.json()
+            console.log(" Message loaded")
+            data.forEach(
+                element => addMessage(element));
+
+        }
+        function addMessage(message){
+            console.log(message)
+            if (message.from === "{{ app.user.username }}"){
+                document.getElementById("chat_window").innerHTML += '<div style="float: right" id="' + message.hash + '"> <p>from:' + message.from + '  ' + message.date + ':  ' + message.text + '</p></div>'
+
+            }else {
+                document.getElementById("chat_window").innerHTML += '<div id="' + message.hash + '"> <p>from:' + message.from + '  ' + message.date + ':  ' + message.text + '</p></div>'
+            }
+            }
+        function getLastMessageHash(){
+            var chat_window = document.getElementById('chat_window');
+            var lastMessage =chat_window.childNodes[chat_window.childNodes.length - 1].id
+            if(lastMessage === undefined){
+                lastMessage =""
+            }
+            return lastMessage
+        }
+    </script>
+</div>
+{% endblock %}

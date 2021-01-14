@@ -46,9 +46,21 @@ class User implements UserInterface
      */
     private $chatRooms;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ChatMessage::class, mappedBy="Send_from")
+     */
+    private $chatMessages;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ChatMessage::class, mappedBy="send_to")
+     */
+    private $ChatMessage_received;
+
     public function __construct()
     {
         $this->chatRooms = new ArrayCollection();
+        $this->chatMessages = new ArrayCollection();
+        $this->ChatMessage_received = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -169,6 +181,66 @@ class User implements UserInterface
     public function __toString()
     {
         return "".$this->username;
+    }
+
+    /**
+     * @return Collection|ChatMessage[]
+     */
+    public function getChatMessages(): Collection
+    {
+        return $this->chatMessages;
+    }
+
+    public function addChatMessage(ChatMessage $chatMessage): self
+    {
+        if (!$this->chatMessages->contains($chatMessage)) {
+            $this->chatMessages[] = $chatMessage;
+            $chatMessage->setSendFrom($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChatMessage(ChatMessage $chatMessage): self
+    {
+        if ($this->chatMessages->removeElement($chatMessage)) {
+            // set the owning side to null (unless already changed)
+            if ($chatMessage->getSendFrom() === $this) {
+                $chatMessage->setSendFrom(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ChatMessage[]
+     */
+    public function getChatMessageReceived(): Collection
+    {
+        return $this->ChatMessage_received;
+    }
+
+    public function addChatMessageReceived(ChatMessage $chatMessageReceived): self
+    {
+        if (!$this->ChatMessage_received->contains($chatMessageReceived)) {
+            $this->ChatMessage_received[] = $chatMessageReceived;
+            $chatMessageReceived->setSendTo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChatMessageReceived(ChatMessage $chatMessageReceived): self
+    {
+        if ($this->ChatMessage_received->removeElement($chatMessageReceived)) {
+            // set the owning side to null (unless already changed)
+            if ($chatMessageReceived->getSendTo() === $this) {
+                $chatMessageReceived->setSendTo(null);
+            }
+        }
+
+        return $this;
     }
 
 }

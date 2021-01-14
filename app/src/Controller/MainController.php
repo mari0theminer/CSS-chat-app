@@ -3,21 +3,21 @@
 namespace App\Controller;
 
 use App\Repository\ChatRoomRepository;
+use mysql_xdevapi\Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+
     /**
-     * @Route("/main", name="home")
+     * @Route("/", name="home")
      */
-    public function index(ChatRoomRepository  $repository): Response
+    public function index(): Response
     {
-        $allChatRomms = $repository->findAll();
-        return $this->render('main/index.html.twig', [
-            'controller_name' => 'MainController',
-            'allChatRoms'=> $allChatRomms
-        ]);
-    }
+
+            return $this->redirectToRoute('chat_hash',['hash'=>'MAIN_CHAT']);
+        }
+
 }
