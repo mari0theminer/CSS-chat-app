@@ -18,6 +18,10 @@ class ChatRoom
      * @ORM\Column(type="integer")
      */
     private $id;
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    private $hash;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -39,14 +43,26 @@ class ChatRoom
      */
     private $Users;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ChatMessage::class, mappedBy="ChatRoom")
+     */
+    private $chatMessages;
+
     public function __construct()
     {
         $this->Users = new ArrayCollection();
+        $this->hash = bin2hex(random_bytes(16));
+        $this->chatMessages = new ArrayCollection();
+
     }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+    public function getHash(): ?string
+    {
+        return $this->hash;
     }
 
     public function getName(): ?string
@@ -105,6 +121,36 @@ class ChatRoom
     public function removeUser(User $user): self
     {
         $this->Users->removeElement($user);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ChatMessage[]
+     */
+    public function getChatMessages(): Collection
+    {
+        return $this->chatMessages;
+    }
+
+    public function addChatMessage(ChatMessage $chatMessage): self
+    {
+        if (!$this->chatMessages->contains($chatMessage)) {
+            $this->chatMessages[] = $chatMessage;
+            $chatMessage->setChatRoom($this);
+        }
+
+        return $this;
+    }
+
+    public function removeChatMessage(ChatMessage $chatMessage): self
+    {
+        if ($this->chatMessages->removeElement($chatMessage)) {
+            // set the owning side to null (unless already changed)
+            if ($chatMessage->getChatRoom() === $this) {
+                $chatMessage->setChatRoom(null);
+            }
+        }
 
         return $this;
     }
