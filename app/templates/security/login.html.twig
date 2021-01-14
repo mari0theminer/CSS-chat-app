@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Sign In{% endblock %}
 
 {% block body %}
-<form method="post">
+{# <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
@@ -21,9 +21,8 @@
     <input type="password" name="password" id="inputPassword" class="form-control" required>
 
     <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-            <div class="checkbox mb-3">
+           value="{{ csrf_token('authenticate') }}">
+        <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" name="_remember_me"> Remember me
             </label>
@@ -32,6 +31,30 @@
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
-</form>
+</form> #}
+
+<div class="loginForm">
+{% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+        <form method="post">
+            <h1>Sign In</h1>
+            <input type="text" placeholder="Username" value="{{ last_username }}" name="username" id"inputUsername" required autofocus>
+            <input type="password" placeholder="Password" name="password" id="inputPassword" required>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <input type="checkbox" name="_remember_me">
+            <label for="rmbrMeBox">stay signed in</label>
+            <button type="submit" class="signInButton">Login</button>
+        </form>
+        <a href="Register.html.twig" class="toSignUp">
+            Sign Up
+        </a>
+    </div>
 
 {% endblock %}
