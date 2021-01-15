@@ -111,7 +111,7 @@
             var chat_window = document.getElementById('chat_window');
             var lastMessage =chat_window.childNodes[chat_window.childNodes.length - 1].id
             if(lastMessage === undefined){
-                lastMessage =""
+                lastMessage = null;
             }
             return lastMessage
         }
