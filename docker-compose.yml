@@ -21,10 +21,7 @@ services:
       container_name: chat-webserver
       working_dir: /application
       volumes:
-          - ./app:/application
-          - cach:/app/var
-          - vendor:/app/vendor
-          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+          - ./app:./application
       ports:
        - "80:80"
       environment:
@@ -37,9 +34,7 @@ services:
       environment:
         - system=composer-single
       volumes:
-        - ./app:/application
-        - cach:/app/var
-        - vendor:/app/vendor
+        - ./app:./application
         - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.4/fpm/conf.d/99-overrides.ini
 
 volumes:
