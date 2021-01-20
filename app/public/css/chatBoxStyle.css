@@ -225,3 +225,12 @@ img{
     background-color: wheat;
     width: fit-content;
 }
+
+.recBubble{
+    box-shadow: 2px 2px 3px dimgray;
+    align-self: flex-start;
+    margin-top: 5px;
+    border-radius: 5px;
+    background-color: khaki;
+    width: fit-content;
+}
