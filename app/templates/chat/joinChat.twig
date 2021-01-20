@@ -102,16 +102,18 @@
             if (message.from === "{{ app.user.username }}"){
                 var msgContent = '<p class="content">' + message.text + '</p>';
                 var msgDetails = '<p class="sender">' + message.from + ' | ' + message.date + '</p>';
-                document.getElementById("chat_window").innerHTML += '<div class="bubble" id="' + message.hash + '"> ' + msgContent + ' ' + msgDetails + ' </div>'
+                document.getElementById("chat_window").innerHTML += '<div class="bubble" id="' + message.hash + '">' + msgContent + ' ' + msgDetails + ' </div>'
             }else {
-                document.getElementById("chat_window").innerHTML += '<div id="' + message.hash + '"> <p>from:' + message.from + '  ' + message.date + ':  ' + message.text + '</p></div>'
+                var recContent = '<p class="content2">' + message.text + '</p>';
+                var recDetails = '<p class="recepient">' + message.from + ' | ' + message.date + '</p>';
+                document.getElementById("chat_window").innerHTML += '<div class="bubble" id="' + message.hash + '">' + recContent + ' ' + recDetails + ' </div>'
                 }
             }
         function getLastMessageHash(){
             var chat_window = document.getElementById('chat_window');
             var lastMessage =chat_window.childNodes[chat_window.childNodes.length - 1].id
             if(lastMessage === undefined){
-                lastMessage =""
+                lastMessage = null;
             }
             return lastMessage
         }
