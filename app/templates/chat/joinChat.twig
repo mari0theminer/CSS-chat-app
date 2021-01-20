@@ -106,7 +106,7 @@
             }else {
                 var recContent = '<p class="content2">' + message.text + '</p>';
                 var recDetails = '<p class="recepient">' + message.from + ' | ' + message.date + '</p>';
-                document.getElementById("chat_window").innerHTML += '<div class="bubble" id="' + message.hash + '">' + recContent + ' ' + recDetails + ' </div>'
+                document.getElementById("chat_window").innerHTML += '<div class="recBubble" id="' + message.hash + '">' + recContent + ' ' + recDetails + ' </div>'
                 }
             }
         function getLastMessageHash(){
