@@ -8,6 +8,7 @@
 
 {% block body %}
 <div class="container">
+    <div class="blur"></div>
     <header class="header">
         <button id="menuBtn"><i class="material-icons">menu</i></button>
         <label class="usernameHeader" for="avatar">{{ app.user.username }}</label>
@@ -21,7 +22,7 @@
         </div>
         <div class="chatList">
             {% for Room in rooms  %}
-                <div style="background: #ff7cd4"
+                <div class="room"
                 {% if Room.public == true %}
                 onclick='join_room_public("{{ Room.hash }}")'
                 {% else %}
@@ -46,17 +47,21 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const nav = document.querySelector(".side");
+            const blur = document.querySelector(".blur");
 
             document.querySelector("#menuBtn").addEventListener("click", () => {
                 nav.classList.add("openSidebar");
+                blur.classList.add("showBlur");
             });
 
             document.querySelector("#closeBtn").addEventListener("click", () => {
                 nav.classList.remove("openSidebar");
+                blur.classList.remove("showBlur");
             });
 
-            document.querySelector(".chatArea").addEventListener("click", () => {
+            document.querySelector(".blur").addEventListener("click", () => {
                 nav.classList.remove("openSidebar");
+                blur.classList.remove("showBlur");
             });
         });
     </script>
