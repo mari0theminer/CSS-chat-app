@@ -1,4 +1,7 @@
 You have create a Super admin 
 User Name: admin_9bb9d1182e9f6deeb9a484062e24ad08   
 pw: 1e1109359d773e0a5e70f8894025a144
+
+User Name: admin_20205b1e13282fb4faa00b68e4a70d1b   
+pw: fdf6c6743dd87240d20d9dd3728f7517
 .

@@ -1,16 +1,7 @@
 body {
     --headerHight: 40px;
     margin: var(--headerHight) 0 0 0;
-    background-color: cadetblue;
-}
-
-img{
-    margin: 10px auto;
-    border-radius: 50px;
-    height: 100px;
-    width: 100px;
-    background-color: wheat;
-    box-shadow: 1px 1px 1px black;
+    background-color: darkcyan;
 }
 
 .username{
@@ -36,14 +27,15 @@ img{
 }
 
 .side {
+    border-radius: 0px 20px 20px 0px;
     background-color: wheat;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
     height: 100vh;
-    width: 250px;
-    transform: translateX(-250px);
+    width: 300px;
+    transform: translateX(-300px);
     transition: transform 0.3s;
     display: flex;
     flex-direction: column;
@@ -51,20 +43,32 @@ img{
     justify-content: stretch;
 }
 
+img{
+    margin: 20px auto;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    background-color: tomato;
+    box-shadow: 1px 1px 1px black;
+}
+
 .avatar{
+    border-radius: 0px 20px 0px 0px;
     flex: 1;
     text-align: center;
-    background-color: cadetblue;
+    background-color: darkcyan;
 }
 
 .chatList{
+    border-radius: 0px 0px 20px 0px;
+    background-color: tomato;
     flex: 2;
     text-align: center;
 }
 
 .openSidebar{
     transform: translateX(0);
-    box-shadow: 0 0 10px dimgray;
+    box-shadow: 0 0 5px black;
 }
 
 .main {
@@ -92,7 +96,7 @@ img{
 }
 
 .controls {
-    background-color: cadetblue;
+    background-color: darkcyan;
     width: 100%;
     position: fixed;
     bottom: 0;
@@ -231,7 +235,7 @@ img{
     align-self: flex-start;
     margin-top: 5px;
     border-radius: 10px 10px 10px 0px;
-    background-color: khaki;
+    background-color: white;
     width: fit-content;
 }
 
@@ -253,12 +257,14 @@ img{
 
 .room{
     padding: 5px;
-    background-color: cadetblue;
-    margin: 10px 10px 0px 10px;
-    border-radius: 10px 10px 0px 10px;
-    box-shadow: 2px 2px 3px dimgray;
+    background-color: darkcyan;
+    margin: 10px 10px 10px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+    cursor: pointer;
 }
 
 .room p{
     color: white;
+    cursor: pointer;
 }
