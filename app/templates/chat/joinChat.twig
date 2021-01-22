@@ -4,6 +4,7 @@
 {% block stylesheets %}
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/chatBoxStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 {% endblock %}
 
 {% block body %}
@@ -20,7 +21,7 @@
             <img src="https://simpleicon.com/wp-content/uploads/account-256x256.png" alt="account Icon">
             <label class="username" for="avatar">{{ app.user.username }}</label>
         </div>
-            <a>
+            <a onclick="loadchatPopuo()">
             <div class="room" >
                 <p>Erstellen</p>
             </div>
@@ -130,6 +131,17 @@
                 lastMessage = null;
             }
             return lastMessage
+        }
+        function loadchatPopuo(){
+            Swal.fire({
+                title: 'Create new Game',
+                showConfirmButton: false,
+                html:
+                    '{{ form(form) }}',
+                allowEnterKey:false,
+                confirmButtonColor: '#3085d6',
+
+            })
         }
     </script>
 </div>
