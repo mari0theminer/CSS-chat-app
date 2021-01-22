@@ -20,6 +20,11 @@
             <img src="https://simpleicon.com/wp-content/uploads/account-256x256.png" alt="account Icon">
             <label class="username" for="avatar">{{ app.user.username }}</label>
         </div>
+            <a>
+            <div class="room" >
+                <p>Erstellen</p>
+            </div>
+            </a>
         <div class="chatList">
             {% for Room in rooms  %}
                 <div class="room"
@@ -99,20 +104,24 @@
             let data= await response.json()
             console.log(" Message loaded")
             data.forEach(
-                element => addMessage(element));
+
+                element => addMessage(element)
+            );
 
         }
         function addMessage(message){
-            console.log(message)
-            if (message.from === "{{ app.user.username }}"){
-                var msgContent = '<p class="content">' + message.text + '</p>';
-                var msgDetails = '<p class="sender">' + message.from + ' | ' + message.date + '</p>';
-                document.getElementById("chat_window").innerHTML += '<div class="bubble" id="' + message.hash + '">' + msgContent + ' ' + msgDetails + ' </div>'
-            }else {
-                var recContent = '<p class="content2">' + message.text + '</p>';
-                var recDetails = '<p class="recepient">' + message.from + ' | ' + message.date + '</p>';
-                document.getElementById("chat_window").innerHTML += '<div class="recBubble" id="' + message.hash + '">' + recContent + ' ' + recDetails + ' </div>'
+            oldMessage = document.getElementById(message.hash)
+            if(!oldMessage) {
+                if (message.from === "{{ app.user.username }}") {
+                    var msgContent = '<p class="content">' + message.text + '</p>';
+                    var msgDetails = '<p class="sender">' + message.from + ' | ' + message.date + '</p>';
+                    document.getElementById("chat_window").innerHTML += '<div class="bubble" id="' + message.hash + '">' + msgContent + ' ' + msgDetails + ' </div>'
+                } else {
+                    var recContent = '<p class="content2">' + message.text + '</p>';
+                    var recDetails = '<p class="recepient">' + message.from + ' | ' + message.date + '</p>';
+                    document.getElementById("chat_window").innerHTML += '<div class="recBubble" id="' + message.hash + '">' + recContent + ' ' + recDetails + ' </div>'
                 }
+            }
             }
         function getLastMessageHash(){
             var chat_window = document.getElementById('chat_window');

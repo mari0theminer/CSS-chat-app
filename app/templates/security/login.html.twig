@@ -36,19 +36,20 @@
     </button>
 </form> #}
 
-{% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
 
 <div class="loginForm">
         <form method="post">
             <h1>Sign In</h1>
+            {% if error %}
+                <div style="background: #B0413E;color:white" class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            {% if app.user %}
+                <div class="mb-3">
+                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                </div>
+            {% endif %}
             <input type="text" placeholder="Username" value="{{ last_username }}" name="username" id="inputUsername" required autofocus>
             <input type="password" placeholder="Password" name="password" id="inputPassword" required>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
