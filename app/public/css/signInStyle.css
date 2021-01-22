@@ -3,11 +3,19 @@
     color: darkslategrey;
 }
 
+body{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://i.pinimg.com/originals/f0/98/a4/f098a4e78f79019f4067e44995d5a7c3.jpg");
+}
+
 .loginForm{
     box-shadow: 2px 2px 3px black;
     border-radius: 10px;
     width: 600px;
-    background-color: cadetblue;
+    background-color: teal;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -79,21 +87,12 @@ h1{
     color: white;
     text-align: center;
     letter-spacing: 2px;
+    text-shadow: 2px 2px 2px black;
 }
 
 h1:hover{
     animation: example 5s infinite;
 }
-
-/* @keyframes example {
-    0% { color: white; }
-    15% { color: orange; }
-    25% { color: orangered; }
-    50% { color: darkred; }
-    75% { color: orangered; }
-    85% { color: orange; }
-    100% { color: white; }
-  } */
 
 h5{
     text-align: center;
@@ -128,6 +127,16 @@ h5{
 @media only screen and (max-width: 600px) {
     .loginForm {
       width: 400px;
+      box-shadow: none;
+      background-color: transparent;
+    }
+
+    label{
+        color: black;
+    }
+
+    .toSignUp{
+        border-radius: 20px;
     }
   }
 
