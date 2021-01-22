@@ -7,6 +7,10 @@ body {
     background-image: url("https://i.pinimg.com/originals/f0/98/a4/f098a4e78f79019f4067e44995d5a7c3.jpg");
 }
 
+*{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .username{
     word-break: break-all;
     letter-spacing: 2px;
@@ -93,7 +97,7 @@ img{
 }
 
 .chatArea {
-    margin: 0px 5px 35px 5px;
+    margin: 0px 5px 43px 5px;
     flex: 2;
     height: 100%;
     display: flex;
@@ -124,7 +128,7 @@ img{
     padding: 3px 10px;
 }
 
-.sendBtn, #menuBtn, #closeBtn{
+.sendBtn, #menuBtn, #closeBtn, .btn{
     cursor: pointer;
 }
 
@@ -135,8 +139,8 @@ img{
     color: white;
     background-color: tomato;
 }
-    .sendBtn:focus{
-        background-color: red;
+    .sendBtn:active, .createRoom:active, .room:active{
+        transform: translate(1px, 1px);
     }
 
 .usernameHeader{
@@ -197,6 +201,7 @@ img{
 
 
 .content{
+    color: white;
     margin: 5px 5px 5px;
     text-align: end;
     font-size: 18px;
@@ -204,10 +209,9 @@ img{
 
 .sender{
     margin: 5px 5px 5px;
-    color: grey;
+    color: gainsboro;
     font-size: 12px;
     font-style: italic;
-    text-transform: uppercase;
     text-align: end;
 }
 
@@ -227,11 +231,11 @@ img{
 }
 
 .bubble{
-    box-shadow: 2px 2px 3px dimgray;
+    box-shadow: 2px 2px 3px dimgrey;
     align-self: flex-end;
     margin-top: 5px;
-    border-radius: 10px 10px 0px 10px;
-    background-color: wheat;
+    border-radius: 10px 0px 10px 10px;
+    background-color: teal;
     width: fit-content;
 }
 
@@ -239,7 +243,7 @@ img{
     box-shadow: 2px 2px 3px dimgray;
     align-self: flex-start;
     margin-top: 5px;
-    border-radius: 10px 10px 10px 0px;
+    border-radius: 0px 10px 10px 10px;
     background-color: white;
     width: fit-content;
 }
@@ -260,7 +264,30 @@ img{
     visibility: visible;
 }
 
-.room{
+/* .room{
+    
+    padding: 5px;
+    background-color: wheat;
+    margin: 10px 10px 10px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+    cursor: pointer;
+} */
+
+.room p, .createRoom p{
+    text-align: center;
+    color: black;
+    cursor: pointer;
+}
+
+.loadChatPopup{
+    background-color: tomato;
+}
+
+.createRoom, .room{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     padding: 5px;
     background-color: wheat;
     margin: 10px 10px 10px 10px;
@@ -269,7 +296,51 @@ img{
     cursor: pointer;
 }
 
-.room p{
-    color: black;
-    cursor: pointer;
+.createRoom .material-icons, .room .material-icons{
+    font-size: 30px;
+    text-shadow: 1px 1px 1px dimgray;
+    color: teal;
+    align-self: center;
+    margin-right: 5px;
+}
+
+.form-control{
+    cursor: text;
+    background-color: rgb(231, 231, 231);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    width: 95%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 18px;
+    outline: none;
+    box-shadow: 1px 1px black;
+}
+
+.btn{
+    text-transform: uppercase;
+    width: 50%;
+    font-size: 18px;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 1px black;
+    border-radius: 20px;
+    padding: 10px;
+    letter-spacing: 3px;
+    color: white;
+    background-color: tomato;
+}
+
+.swal2-popup{
+    background-color: teal;
+    box-shadow: 2px 2px 3px black;
+    border-radius: 20px;
+}
+
+.required{
+    visibility: hidden;
 }

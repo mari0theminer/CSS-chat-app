@@ -52,7 +52,6 @@ form input[type="text"], input[type="password"]{
 
 form input:focus{
     background-color: white;
-    box-shadow: 1px 1px black;
 }
 
 .signInButton, form input{
@@ -133,6 +132,7 @@ h5{
 
     label{
         color: black;
+        text-shadow: 1px 1px 1px white;
     }
 
     .toSignUp{

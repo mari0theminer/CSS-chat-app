@@ -21,8 +21,9 @@
             <img src="https://simpleicon.com/wp-content/uploads/account-256x256.png" alt="account Icon">
             <label class="username" for="avatar">{{ app.user.username }}</label>
         </div>
-            <a onclick="loadchatPopuo()">
-            <div class="room" >
+            <a class="loadChatPopup" onclick="loadchatPopuo()">
+            <div class="createRoom" >
+                <i class="material-icons">add_comment</i>
                 <p>Erstellen</p>
             </div>
             </a>
@@ -34,6 +35,7 @@
                 {% else %}
                 onclick='join_room_Private("{{ Room.hash }}")'
                 {% endif %}>
+                    <i class="material-icons">insert_comment</i>
                     <p> {{ Room.name }}</p>
                 </div>
             {% endfor %}
@@ -134,7 +136,7 @@
         }
         function loadchatPopuo(){
             Swal.fire({
-                title: 'Create new Game',
+                title: 'Neuer Chat',
                 showConfirmButton: false,
                 html:
                     '{{ form(form) }}',
