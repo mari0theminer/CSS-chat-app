@@ -18,15 +18,18 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ChatController extends AbstractController
 {
+
+
     /**
-     * @Route("/create", name="chat_create")
+     * @Route("/c/{hash}", name="chat_hash")
      */
-    public function index(Request $request,EntityManagerInterface $em): Response
+    public function chat_hash($hash,ChatRoomRepository $re,Request $request,EntityManagerInterface $em): Response
     {
         $form = $this->createForm(CreateChatType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $chat = $form->getData();
+            $chat->setPublic(true);
 
 
             $em->persist($chat);
@@ -34,17 +37,6 @@ class ChatController extends AbstractController
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('chat/CreateChat.html.twig', [
-            'controller_name' => 'MainController',
-            'form'=> $form->createView()
-        ]);
-    }
-
-    /**
-     * @Route("/c/{hash}", name="chat_hash")
-     */
-    public function chat_hash($hash,ChatRoomRepository $re): Response
-    {
         try {
             $room =$re->findOneBy(['hash'=>$hash]);
 
@@ -57,7 +49,8 @@ class ChatController extends AbstractController
         return $this->render('chat/joinChat.twig',
             [
                 'room'=>$room,
-                'rooms'=>$allrooms
+                'rooms'=>$allrooms,
+                'form'=>$form->createView()
             ]);
 
     }

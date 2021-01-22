@@ -14,8 +14,6 @@ class CreateChatType extends AbstractType
     {
         $builder
             ->add('Name')
-            ->add('Public')
-            ->add('Password')
             ->add('submit',SubmitType::class)
 
         ;
