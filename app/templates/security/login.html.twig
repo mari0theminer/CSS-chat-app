@@ -15,18 +15,18 @@
 
             {% if app.user %}
                 <div class="mb-3">
-                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    Du bist eingelogt als {{ app.user.username }}, <a href="{{ path('app_logout') }}">auslogen</a>
                 </div>
             {% endif %}
             <input type="text" placeholder="Username" value="{{ last_username }}" name="username" id="inputUsername" required autofocus>
             <input type="password" placeholder="Password" name="password" id="inputPassword" required>
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             <input type="checkbox" name="_remember_me">
-            <label for="rmbrMeBox">stay signed in</label>
+            <label for="rmbrMeBox">Angmeledet bleiben</label>
             <button type="submit" class="signInButton">Login</button>
         </form>
         <a href="{{ path('app_register') }}" class="toSignUp">
-            Sign Up
+            Register
         </a>
     </div>
 
