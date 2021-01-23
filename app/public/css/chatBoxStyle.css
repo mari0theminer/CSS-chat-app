@@ -149,7 +149,7 @@ img{
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    /* justify-self: center; */
+    align-self: center;
     word-break: break-all;
     letter-spacing: 2px;
     font-size: 24px;
