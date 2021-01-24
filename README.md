@@ -1,8 +1,10 @@
 # CSS-chat-app
+Liver version 
+https://css-chat-dev.mari0.dev/login
 
-##WICHTIG 
+## WICHTIG 
 PHP VERSION ^7.2.5 php 8 wird nicht gehen 
-##Instalation 
+## Instalation 
 
 ###all in one docker (Windows performance ist leider mä)
 
